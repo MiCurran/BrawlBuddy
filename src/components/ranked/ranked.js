@@ -2,8 +2,7 @@ import React, { Fragment, useState, useEffect} from 'react';
 import { useForm } from "react-hook-form";
 import useDataApi from 'use-data-api';
 import './ranked.component.css'
-import Navbar from '../Navbar/navbar.component'
-
+import Navigation from '../Navbar/navbar.component'
 
 
 function Ranked() {
@@ -27,56 +26,61 @@ function Ranked() {
   
   // we probably need to work on getting the buttons to their own components so we can display for each
   return (
-    <Fragment>
-      <Navbar />
+    <Fragment id="ranked">
+      <Navigation />
       {isError && <div ClassName="text-white">Something went wrong ...</div>}
 
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
+        <div id="ranked">
         <div className="data-container">
-          <h1 className="text-white">{region} region</h1>
-          <h1 className="text-white">{bracket}</h1>  
-          <h1 className="text-white">Results for "{query}"</h1>  
+          
+    
 
-
-          <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input name="firstName" ref={register} />
-      <button type="submit">Submit</button>
-    </form>
-          <div className ="row">
-          <div className ="col-4">
+          <div className="header">
+        <div className="row">
+          <div className="col">
+          <p className="text-white label">Bracket</p>
           <button className="btn btn-primary"onClick={() => setBracket('1v1')}>1v1</button>
-          </div>
-          <div className ="col-4">
           <button className="btn btn-primary"onClick={() => setBracket('2v2')}>2v2</button>
           </div>
           </div>
+          <p className="text-white label">Region</p>
           <button className="btn btn-primary"onClick={() => setRegion('all')}>Global</button>
-          <button className="btn btn-primary"onClick={() => setRegion('us-e')}>us-e</button>
-          <button className="btn btn-primary"onClick={() => setRegion('us-w')}>us-w</button>
-          <button className="btn btn-primary"onClick={() => setRegion('eu')}>eu</button>
-          <button className="btn btn-primary"onClick={() => setRegion('brz')}>brz</button>
-          <button className="btn btn-primary"onClick={() => setRegion('sea')}>sea</button>
-          <button className="btn btn-primary"onClick={() => setRegion('jpn')}>jpn</button>
-          <button className="btn btn-primary"onClick={() => setRegion('aus')}>aus</button>
-
+          <button className="btn btn-primary"onClick={() => setRegion('us-e')}>US-e</button>
+          <button className="btn btn-primary"onClick={() => setRegion('us-w')}>US-w</button>
+          <button className="btn btn-primary"onClick={() => setRegion('eu')}>Eu</button>
+          <button className="btn btn-primary"onClick={() => setRegion('brz')}>Brz</button>
+          <button className="btn btn-primary"onClick={() => setRegion('sea')}>Sea</button>
+          <button className="btn btn-primary"onClick={() => setRegion('jpn')}>Jpn</button>
+          <button className="btn btn-primary"onClick={() => setRegion('aus')}>Aus</button>
+          <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <label className="text-white" for="firstName">Search User</label>
+      <input placeholder="User Name" name="firstName" ref={register} />
+      <button  className="btn btn-light"type="submit">Search</button>
+    </form>
+          <h1 className="text-white">{region} region {bracket} results for: "{query}"</h1>
           <div className="row">
             <div className="col-4">
-            <button className="btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
+            <p style={{cursor:'pointer'}} className="pageBtn text-white"onClick={() => setPage(page - 1)}>Prev Page</p>
             </div>
             <div className="col-4">
-            <button className="btn btn-primary btn-sm"onClick={() => setPage(page + 1)}>Next Page</button>
+            <p className="text-white">{page}</p>
             </div>
+            <div className="col-4">
+            <p style={{cursor:'pointer'}} className="pageBtn text-white" onClick={() => setPage(page + 1)}>Next Page</p>
+            </div>
+          </div>
           </div>
 
             <div className="row legend">
-            <div className="col rank-header"><h4>Rank</h4></div>
+            <div className="col rank-header table-legend"><h4>Rank</h4></div>
 
-            <div className="col "><h4>Name</h4></div>
-              <div className="col "><h4>Elo</h4></div>
-              <div className="col "><h4>Peak</h4></div>
-              <div className="col"><h4>Win %</h4></div>
+            <div className="col  table-legend"><h4>Name</h4></div>
+              <div className="col  table-legend"><h4>Elo</h4></div>
+              <div className="col  table-legend"><h4>Peak</h4></div>
+              <div className="col table-legend"><h4>Win %</h4></div>
 
 
             </div>
@@ -92,18 +96,19 @@ function Ranked() {
          
           <div className="row">
             <div className="col-4">
-            <button className="btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
+            <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
             </div>
             <div className="col-4">
             <p className="text-white">{page}</p>
             </div>
             <div className="col-4">
-            <button className="btn btn-primary btn-sm"onClick={() => setPage(page + 1)}>Next Page</button>
+            <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page + 1)}>Next Page</button>
             </div>
           </div>
         
 
 
+        </div>
         </div>
       )}
     </Fragment>

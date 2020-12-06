@@ -1,0 +1,11 @@
+#stats {
+ background-image: url('./assets/images/BG_Brawlhaven2.jpg');
+ min-height: 100vh;
+}
+
+.legendCard{
+background-color: rgb(170, 170, 170);
+margin: .25rem;
+max-width: 15rem !important;
+border-radius: 15%;
+}

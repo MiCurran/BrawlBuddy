@@ -1,7 +1,6 @@
 .blobby-button {
     overflow: hidden;
     outline: none;
-    display: flex;
     color: #9a02ff;
     background-color: transparent;
     text-align: center;

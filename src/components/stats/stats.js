@@ -2,6 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react';
 import { useForm } from "react-hook-form";
 import useDataApi from 'use-data-api';
 import brawlidLocation from './assets/images/brawlidlocation.png'
+import './stat.css'
 
 
 function Stats(){
@@ -56,6 +57,7 @@ const updateUser = () => {
         else{ 
           return(
             <Fragment>
+              <div id="stats">
             {isError && <div ClassName="text-white">Something went wrong ...</div>}
       
             {isLoading ? (
@@ -76,10 +78,10 @@ const updateUser = () => {
                  
              
                 </div>
-                <div className="row mx-2">
+                <div className="row mx-5">
                 {legends.map(item => (
                   
-                  <div className=" col-4 my-3 text-dark" key={item.legend_id}>
+                  <div className=" col-4 my-3 text-dark legendCard" key={item.legend_id}>
                   <div><img src={item.legend_name_key} alt={item.legend_name_key + '.png'}></img></div>
                 <div className="col text-dark"><strong>{item.legend_name_key}</strong></div>
                 <div className="col ">Legend level {item.level}</div>
@@ -97,8 +99,9 @@ const updateUser = () => {
             </div>
                 
         </div>
+        
             )}
-            
+            </div>
           </Fragment>
             
             );

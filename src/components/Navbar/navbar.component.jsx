@@ -1,25 +1,28 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
+import './navbar.css'
 
-function Navbar(){//the home component will just display a navbar with links to ranked and stats maybe a brief desc
-    return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="/">Brawl Buddy</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div className="navbar-nav">
-      <Link to="/" className="nav-item nav-link active" >Home <span className="sr-only">(current)</span></Link>
-      <Link to="/ranked" className="nav-item nav-link" >Ranked</Link>
-      <Link to="/stats" className="nav-item nav-link">Stats</Link>
-      <Link to="/track" className="nav-item nav-link">Track</Link>
+class Navigation extends Component {
+    state = {  }
+    render() { 
+        return (  
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar.Brand className="navLink" style={{cursor:'pointer'}} to="/">Brawl Buddy</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+       <Nav.Link className="navLink" href="/">Home</Nav.Link>
+       <Nav.Link className="navLink" href="/ranked">Ranked</Nav.Link>
+       <Nav.Link className="navLink" href="/stats">User Stats</Nav.Link>
+       <Nav.Link className="navLink" href="/track">Track</Nav.Link>
 
-      
-    </div>
-  </div>
-</nav>
-    );
+    </Nav>
+
+  </Navbar.Collapse>
+</Navbar>
+        );
+    }
 }
-
-export default Navbar;
+ 
+export default Navigation;

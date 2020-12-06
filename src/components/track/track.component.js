@@ -84,20 +84,23 @@ console.log(`updating user ${userName}`)
 
      return(
          <div>
-       {isError && 
-       //this displays when there is an error with the api call such as an invalid brawlhallaID 
-       <div className="text-dark"><h1>Something went wrong...</h1></div>}
+           <Navbar />
+           
+       
         {isLoading ?(
         //we return this when the page is updating user stats
         <div><h1>updating stats! beep boop beep</h1></div>)     
         :(//this returns after loading 
             <div>
-              <Navbar />
+              <div className="idEnter">
+              {isError && 
+       //this displays when there is an error with the api call such as an invalid brawlhallaID 
+       <div className="text-dark"><h1>Enter a valid Brawlhalla ID to start tracking stats!</h1></div>}
              <form onSubmit={handleSubmit(onSubmit, onError)}>
        <input placeholder="brawl id" name="firstName" ref={register} />
        <TrackButton />
      </form>
-
+          </div>
      <div className="text-center table-container ">
          <table className="table-hover tableShape">
         <thead>
