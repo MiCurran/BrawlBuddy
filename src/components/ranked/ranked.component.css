@@ -1,0 +1,41 @@
+.data-container {
+    margin: 0% 5%;
+
+    background-color: black;
+}
+
+.col-2 {
+
+    margin: 0% 2%;
+    color: #ffffff;
+
+}
+
+.legend {
+    background-color: aliceblue;
+}
+
+.col h4 {
+    color: black;
+    font-size: 1.2em;
+}
+
+.rank-col {
+    max-width: 2em !important;
+}
+
+.rank-row {
+    border-top: 1px solid #9b9a9a;
+ 
+}
+
+@media only screen and (min-width: 900px) {
+    .data-container {
+        margin: 0% 25%;
+        
+    }
+    .rank-header {
+        max-width: 5em !important;
+    }
+    
+  }
