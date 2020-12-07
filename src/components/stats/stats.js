@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useDataApi from 'use-data-api';
 import brawlidLocation from './assets/images/brawlidlocation.png'
 import './stat.css'
+import ada from './assets/images/Ada.png'
 
 
 function Stats(){
@@ -23,7 +24,11 @@ const [{data, isLoading, isError }, doFetch] = useDataApi(
         
       );
     
-        
+        const setNameCaps = (s) =>{
+          if (typeof s !== 'string') return ''
+          return s.charAt(0).toUpperCase() + s.slice(1)
+        }
+      
       
 const updateUser = () => {
     doFetch(`https://api.brawlhalla.com/player/${brawlhalla_id}/stats?api_key=${apiKey}`)
@@ -34,6 +39,7 @@ const updateUser = () => {
       setGames(data.games)
       setXp((data.xp_percentage * 100).toFixed(0))
       setLegends(data.legends)//need to map the legends response to this setFunction
+      console.log(data.legends)
 }
 
       useEffect(() =>{
@@ -63,14 +69,15 @@ const updateUser = () => {
             {isLoading ? (
               <div>Loading ...</div>
             ) : (<div>
-                
+                 <div className="search-container">
                 <form onSubmit={handleSubmit(onSubmit, onError)}>
           <input placeholder="brawlhalla id" name="brawlhalla_id" ref={register} />
-          <button type="submit">Submit</button>
+          <button className="btn btn-light"type="submit">Search User</button>
         </form>
             <p>Stats for {name}</p>
-                  <div className="row my-3 rank-row d-flex justify-content-center text-center" key={brawlhalla_id}>
-                  <div className="col-12 text-dark">{name}</div>
+            </div>
+                  <div className="row my-3 rank-row d-flex justify-content-center text-center " key={brawlhalla_id}>
+                  <div className="col-12 text-dark userName">{name}</div>
                   <div className="col-12 text-dark">Account level: {level}</div>
                   <progress id="level" value={xp} max="100"></progress>
                   <div className="col-12 text-dark">Win Rate: {((wins / games) * 100).toFixed(0) + '%'}</div>
@@ -79,14 +86,15 @@ const updateUser = () => {
              
                 </div>
                 <div className="row mx-5">
+                  
                 {legends.map(item => (
                   
-                  <div className=" col-4 my-3 text-dark legendCard" key={item.legend_id}>
-                  <div><img src={item.legend_name_key} alt={item.legend_name_key + '.png'}></img></div>
-                <div className="col text-dark"><strong>{item.legend_name_key}</strong></div>
-                <div className="col ">Legend level {item.level}</div>
+                  <div className=" col-12 my-3 text-dark legendCard" key={item.legend_id}>
+                  <div className="cardImg"><img src={process.env.PUBLIC_URL + `${item.legend_name_key}.png`} alt={`${item.legend_name_key}.png`}></img></div>
+                <div className="col text-dark" id="legendName"><strong>{setNameCaps(item.legend_name_key)}</strong></div>
+                <label htmlfor="level">{(item.xp_percentage * 100).toFixed(0)+'%'}</label>
                 <progress id="level" value={(item.xp_percentage * 100).toFixed(0)} max="100"></progress>
-                <div className="col text-sm">{(item.xp_percentage * 100).toFixed(0)+'%'}</div>
+                <div className="col text-sm">lvl {item.level}</div>
 
 
                 

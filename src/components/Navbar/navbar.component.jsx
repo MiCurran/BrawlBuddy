@@ -15,7 +15,7 @@ class Navigation extends Component {
        <Nav.Link className="navLink" href="/">Home</Nav.Link>
        <Nav.Link className="navLink" href="/ranked">Ranked</Nav.Link>
        <Nav.Link className="navLink" href="/stats">User Stats</Nav.Link>
-       <Nav.Link className="navLink" href="/track">Track</Nav.Link>
+       {/* <Nav.Link className="navLink" href="/track">Track</Nav.Link> */}
 
     </Nav>
 

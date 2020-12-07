@@ -4,7 +4,7 @@ import React,{useEffect} from "react";
 import Home from './components/home.component'
 import Rank from './components/ranked/use.component'
 import UserStats from './components/stats/userStats.component'
-import Track from './components/track/track.component'
+//import Track from './components/track/track.component'//reimport after testing
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
@@ -14,6 +14,14 @@ function App() {
     ReactGA.initialize('UA-174976359-2');
     ReactGA.pageview(window.location.pathname);
   })
+
+  //this may have been working and i just took it out to early. testing with the above set up and we will reassess 
+  // Initialize google analytics page view tracking
+  // history.listen(location => {
+  //   ReactGA.initialize('UA-174976359-2');
+  //   ReactGA.set({ page: location.pathname }); // Update the user's current page
+  //   ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  // });
   return (
     <Router history={history}>
       
@@ -21,7 +29,7 @@ function App() {
         <Switch>
         <Route path="/ranked" exact component={ Rank }/>
         <Route path="/stats" exact component={ UserStats }/>
-        <Route path="/track" exact component={ Track }/>
+        {/* <Route path="/track" exact component={ Track }/> */}
 
 
       </Switch>

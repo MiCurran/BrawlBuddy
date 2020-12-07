@@ -3,9 +3,40 @@
  min-height: 100vh;
 }
 
+.search-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 .legendCard{
 background-color: rgb(170, 170, 170);
 margin: .25rem;
+height: auto;
 max-width: 15rem !important;
 border-radius: 15%;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+#legendName, .userName{
+    margin-top: 5%;
+    font-size: 2em;
+}
+.cardImg{
+    max-height: 175px;
+}
+
+.cardImg img {
+    max-height:90%;
+}
+
+.legendCard label {
+    position: relative;
+    bottom: -10%;
+    font-weight: 800;
 }
