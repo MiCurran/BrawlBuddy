@@ -4,10 +4,20 @@ import Home from './components/home.component'
 import Rank from './components/ranked/use.component'
 import UserStats from './components/stats/userStats.component'
 import Track from './components/track/track.component'
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
 function App() {
+  const history = createBrowserHistory();
+
+  // Initialize google analytics page view tracking
+  history.listen(location => {
+    ReactGA.initialize('G-8LYH8F1L1P');
+    ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  });
   return (
-    <Router>
+    <Router history={history}>
       
         <Route path="/" exact component={ Home }/>
         <Switch>
