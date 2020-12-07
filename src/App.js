@@ -12,7 +12,7 @@ function App() {
 
   // Initialize google analytics page view tracking
   history.listen(location => {
-    ReactGA.initialize('G-8LYH8F1L1P');
+    ReactGA.initialize('UA-174976359-2');
     ReactGA.set({ page: location.pathname }); // Update the user's current page
     ReactGA.pageview(location.pathname); // Record a pageview for the given page
   });
