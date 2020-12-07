@@ -78,10 +78,11 @@ console.log(`updating user ${userName}`)
       useEffect(() =>{
         doFetch(`https://api.brawlhalla.com/player/${user}/ranked?api_key=${apiKey}`);
         initializeUser()
-        setInterval((updateUser),ms('30s'))
+        setInterval((updateUser),ms('5m'))
         //working like this, but intervals ocassionally double up
        })
-
+//one thing that we could implement before adding dynamic path to track ie: (brawl-buddy/track/{brawhallaid})
+//1.add a checkbox for green screen stream use. if checked the background color of the component turns green screen green
      return(
          <div>
            <Navbar />
