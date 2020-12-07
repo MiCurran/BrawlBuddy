@@ -9,6 +9,6 @@
 1. Ranked Table 
 2. User Search Tool
 3. Stream Buddy
-  - ![Image of Stream Buddy in Progress](./public/streambuddyinprog.png)
+  - ![Image of Stream Buddy in Progress](./public/brawlbuddyShow.png)
 ## Try it out
 
