@@ -13,4 +13,4 @@
 3. Stream Buddy
   - ![Image of Stream Buddy in Progress](./public/brawlbuddyShow.png)
 ## Try it out
-
+@ [brawl-buddy.herokuapp.com](https://brawl-buddy.herokuapp.com)
