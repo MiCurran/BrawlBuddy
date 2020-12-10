@@ -16,6 +16,17 @@
     background-color: black;
 }
 
+.col-4.pgs{
+    max-width: fit-content;
+}
+.row.pgs{
+    margin: 5% 10%;
+    justify-content: center;
+}
+
+form {
+    margin: 4%
+}
 .col-2 {
 
     margin: 0% 2%;
@@ -38,12 +49,19 @@
 
 .rank-row {
     border-top: 1px solid #9b9a9a;
+    padding-top: 1rem;
  
 }
 
 .table-legend{
     padding: 2% 0%;
 }
+
+.data {
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
 .header{
     text-align: center;
 }

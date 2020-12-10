@@ -24,7 +24,6 @@ function Ranked() {
     doFetch(`https://api.brawlhalla.com/rankings/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`)
   })
   
-  // we probably need to work on getting the buttons to their own components so we can display for each
   return (
     <Fragment id="ranked">
       <Navigation />
@@ -48,27 +47,27 @@ function Ranked() {
           </div>
           <p className="text-white label">Region</p>
           <button className="btn btn-primary"onClick={() => setRegion('all')}>Global</button>
-          <button className="btn btn-primary"onClick={() => setRegion('us-e')}>US-e</button>
-          <button className="btn btn-primary"onClick={() => setRegion('us-w')}>US-w</button>
-          <button className="btn btn-primary"onClick={() => setRegion('eu')}>Eu</button>
-          <button className="btn btn-primary"onClick={() => setRegion('brz')}>Brz</button>
-          <button className="btn btn-primary"onClick={() => setRegion('sea')}>Sea</button>
-          <button className="btn btn-primary"onClick={() => setRegion('jpn')}>Jpn</button>
-          <button className="btn btn-primary"onClick={() => setRegion('aus')}>Aus</button>
+          <button className="btn btn-primary"onClick={() => setRegion('us-e')}>US-E</button>
+          <button className="btn btn-primary"onClick={() => setRegion('us-w')}>US-W</button>
+          <button className="btn btn-primary"onClick={() => setRegion('eu')}>EU</button>
+          <button className="btn btn-primary"onClick={() => setRegion('brz')}>BRZ</button>
+          <button className="btn btn-primary"onClick={() => setRegion('sea')}>SEA</button>
+          <button className="btn btn-primary"onClick={() => setRegion('jpn')}>JPN</button>
+          <button className="btn btn-primary"onClick={() => setRegion('aus')}>AUS</button>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
       <label className="text-white" for="firstName">Search User</label>
       <input placeholder="User Name" name="firstName" ref={register} />
       <button  className="btn btn-light"type="submit">Search</button>
     </form>
           <h1 className="text-white">{region} region {bracket} results for: "{query}"</h1>
-          <div className="row">
-            <div className="col-4">
+          <div className="row pgs">
+            <div className="col-4 pgs">
             <p style={{cursor:'pointer'}} className="pageBtn text-white"onClick={() => setPage(page - 1)}>Prev Page</p>
             </div>
-            <div className="col-4">
+            <div className="col-4 pgs">
             <p className="text-white">{page}</p>
             </div>
-            <div className="col-4">
+            <div className="col-4 pgs">
             <p style={{cursor:'pointer'}} className="pageBtn text-white" onClick={() => setPage(page + 1)}>Next Page</p>
             </div>
           </div>
@@ -77,20 +76,20 @@ function Ranked() {
             <div className="row legend">
             <div className="col rank-header table-legend"><h4>Rank</h4></div>
 
-            <div className="col  table-legend"><h4>Name</h4></div>
-              <div className="col  table-legend"><h4>Elo</h4></div>
-              <div className="col  table-legend"><h4>Peak</h4></div>
-              <div className="col table-legend"><h4>Win %</h4></div>
+            <div className="col  table-legend"><h2>Name</h2></div>
+              <div className="col  table-legend"><h2>Elo</h2></div>
+              <div className="col  table-legend"><h2>Peak</h2></div>
+              <div className="col table-legend"><h2>Win %</h2></div>
 
 
             </div>
           {data.map(item => (
-              <div className="row my-3 rank-row" key={item.rank || item.teamname}>
-              <div className="col-2 rank-col"><strong>{item.rank}</strong></div>
-              <div className="col-2">{item.teamname || item.name.substring(0,15)}</div>
-              <div className="col-2">{item.rating}</div>
-              <div className="col-2">{item.peak_rating}</div>
-          <div className="col-2">{((item.wins / item.games) * 100).toFixed(0) + '%'}</div>
+              <div className="row my-3 rank-row data" key={item.rank || item.teamname}>
+              <div className="col-2 rank-col data"><strong>{item.rank}</strong></div>
+              <div className="col-2 data">{item.teamname || item.name.substring(0,15)}</div>
+              <div className="col-2 data">{item.rating}</div>
+              <div className="col-2 data">{item.peak_rating}</div>
+          <div className="col-2 data">{((item.wins / item.games) * 100).toFixed(0) + '%'}</div>
             </div>
           ))}
          

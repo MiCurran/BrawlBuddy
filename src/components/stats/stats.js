@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import useDataApi from 'use-data-api';
 import brawlidLocation from './assets/images/brawlidlocation.png'
 import './stat.css'
-import ada from './assets/images/Ada.png'
 
 
 function Stats(){
@@ -32,14 +31,12 @@ const [{data, isLoading, isError }, doFetch] = useDataApi(
       
 const updateUser = () => {
     doFetch(`https://api.brawlhalla.com/player/${brawlhalla_id}/stats?api_key=${apiKey}`)
-      console.log(data)
       setName(data.name)
       setLevel(data.level)
       setWins(data.wins)
       setGames(data.games)
       setXp((data.xp_percentage * 100).toFixed(0))
       setLegends(data.legends)//need to map the legends response to this setFunction
-      console.log(data.legends)
 }
 
       useEffect(() =>{
