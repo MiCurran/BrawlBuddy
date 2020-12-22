@@ -88,7 +88,7 @@ console.log(`updating user ${userName}`)
         else{
           setGreenScreenClasses('greenScreen')
         }
-       })
+       },[])
 //one thing that we could implement before adding dynamic path to track ie: (brawl-buddy/track/{brawhallaid})
 //1.add a checkbox for green screen stream use. if checked the background color of the component turns green screen green
      return(

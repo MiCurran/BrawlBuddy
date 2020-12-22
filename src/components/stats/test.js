@@ -19,6 +19,12 @@ const [player1dayRating, setPlayer1dayRating] = useState(0)
 const [dailyTrend, setDailyTrend] = useState(0)
 const [legends, setLegends] = useState([{legend_id: 18,legend_name_key:'test'}])
 const [xp, setXp] = useState(0)
+const [player, setPlayer] = useState({
+  name: name || 'name',
+  level: level,
+  wins: wins,
+  games: games,
+})
 const { register, handleSubmit } = useForm();
 const onSubmit = (data, e) => setBrawlhalla_id(data.brawlhalla_id, e);
 const onError = (errors, e) => console.log(errors, e);
@@ -40,6 +46,7 @@ const updateUser = () => {
    console.log(response.data[0].player1dayRating) 
    setPlayer1dayRating(response.data[0].player1dayRating)
    //this.setState({ exercises: response.data });
+
   })
   .catch((error) => {
      console.log(error);
@@ -65,9 +72,9 @@ const updateUser = () => {
 }
 
       useEffect(() =>{
-      updateUser()
+        updateUser();
       
-    })
+    },[1])
     if (!legends) {return( 
       <div>
         <h1>Enter a brawlID to search</h1>
@@ -131,9 +138,9 @@ const updateUser = () => {
               
             ))}
             </div>
-                 
+                
         </div>
-              
+        
             )}
             </div>
           </Fragment>

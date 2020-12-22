@@ -4,6 +4,9 @@ import React,{useEffect} from "react";
 import Home from './components/home.component'
 import Rank from './components/ranked/use.component'
 import UserStats from './components/stats/userStats.component'
+import Test from './components/stats/test'
+import SearchComponent from './newComponents/stats/search.component'
+import User from './newComponents/stats/user'
 //import Track from './components/track/track.component'//reimport after testing
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
@@ -29,8 +32,8 @@ function App() {
         <Switch>
         <Route path="/ranked" exact component={ Rank }/>
         <Route path="/stats" exact component={ UserStats }/>
-        {/* <Route path="/track" exact component={ Track }/> */}
-
+         <Route path="/test" exact component={ SearchComponent }/> 
+          <Route path='/test/:id' exact component={ User }/>
 
       </Switch>
     </Router>
