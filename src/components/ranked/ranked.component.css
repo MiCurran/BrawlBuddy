@@ -12,15 +12,14 @@
 }
 .data-container {
     margin: 0% 5%;
-
-    background-color: black;
+    background-color: #9b9a9ada;
+    padding-top: 3em;
 }
 
 .col-4.pgs{
     max-width: fit-content;
 }
 .row.pgs{
-    margin: 5% 10%;
     justify-content: center;
 }
 

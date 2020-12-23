@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter as Router, Route,  Switch} from 'react-router-dom';
 import React,{useEffect} from "react";
 import Home from './components/home.component'
-import Rank from './components/ranked/use.component'
+import Rank from './newComponents/ranked/use.component'//this is set to the new component now 
 import UserStats from './components/stats/userStats.component'
 import Test from './components/stats/test'
 import SearchComponent from './newComponents/stats/search.component'

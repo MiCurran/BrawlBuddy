@@ -7,7 +7,7 @@ class Navigation extends Component {
     state = {  }
     render() { 
         return (  
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand className="navLink" style={{cursor:'pointer'}} to="/">Brawl Buddy</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">

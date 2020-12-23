@@ -7,7 +7,7 @@ function Legends(props){
   if(!props.legends){
     return(
         <div>
-      <p>dafsdfdasf</p>
+      <p>no legends</p>
         </div>
     )}
     else{
