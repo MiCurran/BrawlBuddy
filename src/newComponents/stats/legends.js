@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Legend from './legend.component'
-
+import './legends.css'
 function Legends(props){
   
   console.log(props.legends)
@@ -11,9 +11,9 @@ function Legends(props){
         </div>
     )}
     else{
-        return(<div>
+        return(<div className="legend-container">
             {props.legends.map(legend=>{
-                return(<div>
+                return(<div >
                 <Legend legend={legend}/>
                 </div>)
             })}

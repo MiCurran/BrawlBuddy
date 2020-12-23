@@ -9,12 +9,13 @@ function Chart(props){
       };
     return(
     <PieChart 
+    style={{height:'250px'}}
     data={[
-        { title: 'Wins', value: props.wins, color: '#E38627' },
-        { title: 'Losses', value: (props.games - props.wins), color: '#C13C37' },
+        { title: 'W', value: props.wins, color: '#E38627' },
+        { title: 'L', value: (props.games - props.wins), color: '#C13C37' },
       ]}
-      radius={25}
-      label={({ dataEntry }) => dataEntry.title}
+      radius={20}
+      label={({ dataEntry }) => (dataEntry.value + "" + dataEntry.title)}
       labelStyle={{
         ...defaultLabelStyle,
       }}

@@ -14,7 +14,7 @@ function Legend(props){
     })
     return(
         <div className=" col-12 my-3 text-dark legendCard" key={legend_id}>
-        <div className="cardImg"><img src={process.env.PUBLIC_URL + `${legendName}.png`} alt={`${legendName}.png`}></img></div>
+        <div className="cardImg"><img src={`${process.env.PUBLIC_URL}/${legendName}.png`} alt={`${legendName}.png`}></img></div>
       <div className="col text-dark" id="legendName"><strong>{legendName}</strong></div>
       <label htmlFor="level">{(xp_percentage * 100).toFixed(0)+'%'}</label>
       <progress id="level" value={(xp_percentage * 100).toFixed(0)} max="100"></progress>

@@ -1,0 +1,18 @@
+.userContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.visual-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.ranked-banner{
+    margin-top: -15%;
+}
