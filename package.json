@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "brawlhalla-api": "^4.0.8",
     "format-number": "^3.0.0",
     "history": "^5.0.0",
     "jquery": "^3.5.1",
