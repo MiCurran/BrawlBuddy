@@ -9,7 +9,7 @@ function Chart(props){
       };
     return(
     <PieChart 
-    style={{height:'250px'}}
+    style={props.style}
     data={[
         { title: 'W', value: props.wins, color: '#E38627' },
         { title: 'L', value: (props.games - props.wins), color: '#C13C37' },

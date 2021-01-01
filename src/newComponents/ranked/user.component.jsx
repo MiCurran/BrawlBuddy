@@ -10,17 +10,24 @@ function User(props){
     const wins = props.user.wins
     const games = props.user.games
     const rating = props.user.rating
-    const peak_rating = props.user.peak_rating 
+    const peak_rating = props.user.peak_rating
+    const region = props.user.region
 
     return(
-        <div className="row  rank-row data" key={rank || teamname}>
+        <div className="rankedTable" key={rank || teamname}>
+        <div className="left">
         <div className="col-2 rank-col data"><strong>{rank}</strong></div>
-        <div className="col-2 data"><Link to={{pathname:`/test/${brawlhalla_id}`}}>{teamname || userName.substring(0,15)}</Link></div>
-        {/* <div className="col-2 data">{props.user.tier}</div> */}
-        <div className="col-2 data">{rating}</div>
-        <div className="col-2 data">{peak_rating}</div>
-    <div className="col-2 data">{((wins / games) * 100).toFixed(0) + '%'}</div>
+        <div className="col-2 data nameCol"><Link to={{pathname:`/stats/${brawlhalla_id}`}}>{teamname || userName.substring(0,15)}</Link></div>
+        </div>
+        <div className="right">
+        <div className="col-2 data eloTier region">{region}</div>
+        <div className="col-2 data eloTier"><img src={`${process.env.PUBLIC_URL}/RankedBanner${props.user.tier}.png`} alt={props.user.tier}></img></div>
+        <div className="col-2 data eloTier">{rating}</div>
+        <div className="col-2 data eloTier">{peak_rating}</div>
+    <div className="col-2 data eloTier">{((wins / games) * 100).toFixed(0) + '%'}</div>
+    </div>
       </div>
+      
     )
 }
 

@@ -5,6 +5,7 @@ import './ranked.component.css'
 import User from './user.component'
 import Navigation from '../Navbar/navbar.component'
 import Sidebar from '../Navbar/sidebar.component'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 function Ranked() {
@@ -35,7 +36,7 @@ function Ranked() {
       {isError && <div ClassName="text-white">Something went wrong ...</div>}
 
       {isLoading ? (
-        <div>Loading ...
+        <div>
            <div className="sidebar">
         <div className="row">
           <div className="col">
@@ -58,6 +59,9 @@ function Ranked() {
       <input placeholder="User Name" name="firstName" ref={register} />
       <button  className="btn btn-dark"type="submit">Search</button>
     </form>
+        </div>
+        <div className="spinner">
+        <Spinner animation="border" variant="primary" size="lg" />
         </div>
         </div>
       ) : (
@@ -90,7 +94,7 @@ function Ranked() {
           
     
 
-          <div className="header">
+          <div className="header rounded">
       
           <h1 className="">{region} region {bracket} results for: "{query}"</h1>
           <div className="row pgs">
@@ -107,21 +111,26 @@ function Ranked() {
           </div>
 
             <div className="row legend">
+              <div className="left">
             <div className="col rank-header table-legend"><h4>Rank</h4></div>
-
             <div className="col  table-legend"><h3>Name</h3></div>
-              <div className="col  table-legend"><h3>Elo</h3></div>
-              <div className="col  table-legend"><h3>Peak</h3></div>
+            </div>
+            <div className="right">
+            <div className="col  table-legend regionHeader"><h3>Region</h3></div>
+            <div className="col tier-header rank-header table-legend"><h3>Tier</h3></div>
+              <div className="col elo-header table-legend"><h3>Elo</h3></div>
+              <div className="col peak-header table-legend"><h3>Peak</h3></div>
               <div className="col table-legend"><h3>Win %</h3></div>
-
+              </div>
 
             </div>
+            <div className="rankedDisplay">
           {data.map(item => (
-            <div>
+            <div className="rankedTable-container">
               <User user={item}/>
             </div>
           ))}
-         
+         </div>
           <div className="row">
             <div className="col-4">
             <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
