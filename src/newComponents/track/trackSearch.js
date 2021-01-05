@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/navbar.component'
 import { useForm } from "react-hook-form";
+import FAQ from './children/faq.component'
 import './track.css'
 import { Redirect } from 'react-router-dom';
 
@@ -36,11 +37,18 @@ export default function TrackSearch() {
 if(userLoaded === false){
     return(<div>
         <Navbar />
-        <p>track search</p>
+        <div class="content">
+          <h1 className="mb-0">Enter a Brawlhalla ID to Start Tracking</h1>
         <form onSubmit={handleSubmit(onSubmit, onError)}>
 <input placeholder="brawlhalla id" name="brawlid" ref={register} />
 <button className="btn btn-primary" type="submit">Submit</button>
 </form>
+          <div className="faq-container">
+<h2>F.A.Q's</h2>
+      <FAQ />
+          </div>
+        </div>
+        
 
     </div>)
     }

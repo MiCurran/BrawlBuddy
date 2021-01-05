@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/navbar.component'
 import UserTable from './children/userTable'
 import { TwitterPicker } from 'react-color';
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
+import Toast from 'react-bootstrap/Toast'
 import ms from 'ms'
 import './track.css'
 import { propTypes } from 'react-bootstrap/esm/Image';
@@ -17,6 +20,7 @@ function Track(props){
  const [initWins, setInitWins] = useState()
  const [currentLosses, setCurrentLosses] = useState(0)
  const [background, setBackground] = useState('#9a02ff')
+ const [show, setShow] = useState(true);
  
 //hhere this works well, the only issue is having to wait for the first interval to show username and init stats
 const handleChangeComplete = (color) => {
@@ -75,12 +79,48 @@ setInterval(()=>{
    return(
     <div>
     <Navbar/>
-    <p>Stats will begin tracking in 1 minute!</p>
-    <p>Use the color picker below to customize your tracker!</p>
-    <TwitterPicker 
+    <Toast onClose={() => setShow(false)} show={show} delay={ms('2m')} autohide
+    style={{
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+    }}>
+          <Toast.Header style={{backgroundColor:'#9a02ff'}}>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto text-white">Brawl Buddy Tracker Help</strong>
+            <small>Now</small>
+          </Toast.Header>
+          <Toast.Body><p>Stats will begin tracking in 1 minute!</p>
+   <p>Use the color picker in the customize tab to customize your tracker!</p>
+</Toast.Body>
+        </Toast>
+    <Accordion style={{cursor: 'pointer',width:'500px'}} defaultActiveKey="0">
+  <Card>
+    <Accordion.Toggle as={Card.Header} eventKey="0">
+    <svg viewBox="0 0 100 80" width="40" height="20">
+  <rect width="100" height="10"></rect>
+  <rect y="30" width="100" height="10"></rect>
+  <rect y="60" width="100" height="10"></rect>
+</svg><strong> Customize your tracker!</strong>
+    </Accordion.Toggle>
+    <Accordion.Collapse eventKey="0">
+      <Card.Body>
+        <div className="card-body">
+      <TwitterPicker 
     color={background}
     onChangeComplete={handleChangeComplete}
     />
+    <p>Header Color</p>
+    </div>
+      </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+</Accordion>
+    
     <UserTable header={background} user={user} name={username}/>
   </div>
    )
