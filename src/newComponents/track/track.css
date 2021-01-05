@@ -1,8 +1,58 @@
-.table-container {
+.trackTable-container {
     padding: 5% 25%;
-    
+
+}
+.trackTable{
+	background-color: #555;
+	color: #f4f4f4;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+	
+}
+.trackTable2{
+	background: rgb(16,16,18);
+background: linear-gradient(0deg, rgba(16,16,18,1) 2%, rgba(16,16,18,1) 38%, rgba(154,2,240,1) 100%, rgba(0,212,255,1) 100%);
+	color: #f4f4f4;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.trackTableCol{
+	text-align: center;
+}
+.trackTable-header{
+	background-color: #9a02ff;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 1% 0%;
+	font-size: 1.5em;
+	letter-spacing: .1em;
+	font-weight: 600;
+	text-transform: uppercase;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+
+
+}
+.data-row{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	color: #f4f4f4;
+	padding: 1% 0%;
+	font-size: 1.9em;
+	font-weight: 700;
+	letter-spacing: .1em;
+	text-align: center;
+
 }
 
+.data-col.game {
+    margin-right: 5%;
+}
+.data-col.last {
+    margin: 0% 4%;
+}
 
  table {
 	 font-family: 'Arial';
@@ -75,4 +125,13 @@ thead  {
 
 .greenScreen{
 	background-color: rgb(0,177,64);
+}
+
+.card-body{
+	display: flex;
+	flex-direction: row;
+	padding: 0%;
+}
+.card-body p{
+	margin: 2.5%;
 }

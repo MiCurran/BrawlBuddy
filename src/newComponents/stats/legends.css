@@ -1,0 +1,97 @@
+.legend-container, .legendRow{
+display:flex;
+flex-direction: column;
+flex-wrap: wrap;
+background-color: #343a40;
+max-width: 100vw;
+text-align: center;
+align-items: center;
+}
+.dropdown-menu{
+    height:200px;
+    overflow-y:auto;
+ }
+.legendRow{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #343a40;
+    width: 100vw;
+    justify-content: center;
+    }
+.damageCount{
+    font-size: 2em;
+    font-weight: 700;
+}
+.tier-header{
+    margin-right: 3em;
+}
+.elo-header,.peak-header{
+    margin-right: 3em;
+}
+#legendimg{
+    transition: all .2s ease-in-out;
+}
+#legendimg:hover{
+    z-index: 5;
+    transform: scale(1.3); 
+   
+}
+.cardHeader {
+    width: 100.5%;
+    background-color: #9a02ff;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+.legendGames{
+    margin-top: -10%;
+}
+.weaponLabel{
+    margin-bottom: 0%;
+}
+.legendStats{
+    margin-left: 50px;
+    display:flex;
+flex-direction: column;
+color:#a6b0b9;
+align-items: center;
+justify-content: center;
+border: 1px solid;
+border-top:none;   
+    border-radius: 5%;
+    
+background-color: #49515a;
+box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+
+}
+.label{
+    font-size: 1.3em;
+    font-weight: 700;
+    color:#a6b0b9;
+}
+.legends {
+    display: flex;
+    flex-direction: row;
+    background-color:#343a40;
+
+}
+
+h1.season{
+    margin-top: 10%;
+    margin-left: -10%;
+    transform: rotate(-45deg);
+}
+ .legendCard{
+    margin-left: 100px;
+}
+

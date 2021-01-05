@@ -10,17 +10,12 @@
     border-style: none !important;
     background-image: none !important;
 }
-.data-container {
-    margin: 0% 5%;
 
-    background-color: black;
-}
 
 .col-4.pgs{
     max-width: fit-content;
 }
 .row.pgs{
-    margin: 5% 10%;
     justify-content: center;
 }
 
@@ -29,13 +24,13 @@ form {
 }
 .col-2 {
 
-    margin: 0% 2%;
     color: #ffffff;
 
 }
 
 .legend {
-    background-color: aliceblue;
+    background-color:  #343a40;
+    color: azure;
 }
 
 .col h4 {
@@ -58,21 +53,113 @@ form {
 }
 
 .data {
-    font-size: 1.2em;
-    font-weight: 800;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .header{
     text-align: center;
+    background-color: #9b9a9a;
+    
 }
 
 .pageBtn:hover {
-    color: blue !important;
+    color: #9a02ff !important;
+    font-weight: 800;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 12vw;
+    position: fixed;
+    background-color: #343a40;
+
+
 }
 
+.eloTier {
+    max-width: 25px !important;
+    margin: 0% 25%;
+}
+.tierBanner{
+    max-height: 25px;
+}
+.data img{
+    max-height: 50px;
+}
+.bracketButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.regionButtons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+.sidebar .region{
+    margin-top:2em;
+}
+
+.sidebar label{
+    margin-top:2em; 
+}
+
+.rankedTable-container{
+    background-color: #343a40;
+    
+}
+.rankedTable-container:nth-of-type(even){
+    background-color: #3d444b;
+}
+.regionHeader{
+margin-right: 5em;
+}
+.rankedTable{
+    display: flex;
+    flex-direction: row;
+    transition: all .2s ease-in-out;
+}
+.rankedDisplay:hover .rankedTable-container{
+    filter: blur(2px);
+}
+.rankedDisplay{
+    background-color: #343a40;
+}
+.rankedDisplay .rankedTable-container:hover { 
+    transform: scale(1.1); 
+    filter:blur(0) !important;
+    }
+.spinner {
+    position: absolute;
+    right:50%;
+    top: 50%;
+    border-color: #9a02ff;
+}
+.left, .right{
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    min-width: 500px;
+}
+.region{
+    min-width: 65px;
+}
+.nameCol{
+    min-width: 200px;
+}
 @media only screen and (min-width: 900px) {
     .data-container {
-        margin: 0% 25%;
+        margin: 0% 15%;
         
     }
     .rank-header {

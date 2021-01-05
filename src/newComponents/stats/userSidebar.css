@@ -1,0 +1,18 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    min-width: 10vw;
+    position: fixed;
+    background-color: #343a40;
+    padding: 5px;
+
+
+}
+
+input {
+    width: 75%;
+}

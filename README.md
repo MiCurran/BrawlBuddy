@@ -7,10 +7,10 @@
 
 ## Features
 1. Ranked Table
- - ![Ranked Table](./public/rankedscreen.png)
+ - ![Ranked Table](./public/brawltrackerhome.png)
 2. User Search Tool
-  - ![User Search page in progress](./public/userSearchScreen.png)
+  - ![User Search page in progress](./public/brawltrackeruser.png)
 3. Stream Buddy
-  - ![Image of Stream Buddy in Progress](./public/brawlbuddyShow.png)
+  - ![Image of Stream Buddy in Progress](./public/brawltrackertrack.png)
 ## Try it out
 @ [brawl-buddy.herokuapp.com](https://brawl-buddy.herokuapp.com)

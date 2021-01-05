@@ -1,0 +1,92 @@
+.search-results{
+    background-color: #49515a;
+    text-align: center;
+    min-height: 100vh;
+}
+.search-request{
+    text-decoration: underline;
+    color: #bed2e9;
+}
+.results-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    padding-left: 15%;
+    padding-top: 0%;
+    background-color: #6b7886;
+
+}
+.content h1, h2{
+    color:#a6b0b9
+}
+.list-card{
+    border: 1px solid;
+    margin: 2.5%;
+    margin-top: 8%;
+    text-align: center;
+    background-color: #49515a;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+  border-radius: 5%;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  transition: all .2s ease-in-out;
+
+}
+.list-card:hover{
+    transform: scale(1.05); 
+}
+.list-card-header{
+    background-color: #9a02ff;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+
+    padding-top: 3%;
+
+  ;
+}
+
+.list-card-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.content-label{
+    font-size: 1em;
+}
+.list-card-row-content{
+    margin: 2%;
+    padding: 2%;
+    color: #a6b0b9;
+}
+.game-count{
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #a6b0b9;
+}
+.win-count{
+    margin-top: -8%;
+}
+.list-ranked-banner {
+    padding-top: 5%;
+    margin-bottom: -50%;
+}
+.content{
+    padding-top: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #49515a;
+    min-height: 100vh;
+}

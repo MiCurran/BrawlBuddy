@@ -2,7 +2,11 @@ import React, { Fragment, useState, useEffect} from 'react';
 import { useForm } from "react-hook-form";
 import useDataApi from 'use-data-api';
 import './ranked.component.css'
+import User from './user.component'
 import Navigation from '../Navbar/navbar.component'
+import Sidebar from '../Navbar/sidebar.component'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 function Ranked() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -32,14 +36,8 @@ function Ranked() {
       {isError && <div ClassName="text-white">Something went wrong ...</div>}
 
       {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <div id="ranked">
-        <div className="data-container">
-          
-    
-
-          <div className="header">
+        <div>
+           <div className="sidebar">
         <div className="row">
           <div className="col">
           <p className="text-white label">Bracket</p>
@@ -59,42 +57,80 @@ function Ranked() {
           <form onSubmit={handleSubmit(onSubmit, onError)}>
       <label className="text-white" for="firstName">Search User</label>
       <input placeholder="User Name" name="firstName" ref={register} />
-      <button  className="btn btn-light"type="submit">Search</button>
+      <button  className="btn btn-dark"type="submit">Search</button>
     </form>
-          <h1 className="text-white">{region} region {bracket} results for: "{query}"</h1>
+        </div>
+        <div className="spinner">
+        <Spinner animation="border" variant="primary" size="lg" />
+        </div>
+        </div>
+      ) : (
+        <div>
+        <div className="sidebar">
+          <h4 className="text-white label">Bracket</h4>
+          <div className="bracketButtons">
+          <button className="btn btn-primary"onClick={() => setBracket('1v1')}>1v1</button>
+          <button className="btn btn-primary"onClick={() => setBracket('2v2')}>2v2</button>
+          </div>
+          <h4 className="text-white label region">Region</h4>
+          <div className="regionButtons">
+          <button className="btn btn-primary"onClick={() => setRegion('all')}>Global</button>
+          <button className="btn btn-primary"onClick={() => setRegion('us-e')}>US-E</button>
+          <button className="btn btn-primary"onClick={() => setRegion('us-w')}>US-W</button>
+          <button className="btn btn-primary"onClick={() => setRegion('eu')}>EU</button>
+          <button className="btn btn-primary"onClick={() => setRegion('brz')}>BRZ</button>
+          <button className="btn btn-primary"onClick={() => setRegion('sea')}>SEA</button>
+          <button className="btn btn-primary"onClick={() => setRegion('jpn')}>JPN</button>
+          <button className="btn btn-primary"onClick={() => setRegion('aus')}>AUS</button>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <label className="text-white" for="firstName"><h4>Search User</h4></label>
+      <input placeholder="User Name" name="firstName" ref={register} />
+      <button  className="btn btn-primary"type="submit">Search</button>
+    </form>
+        </div>
+        <div id="ranked">
+        <div className="data-container">
+          
+    
+
+          <div className="header rounded">
+      
+          <h1 className="">{region} region {bracket} results for: "{query}"</h1>
           <div className="row pgs">
             <div className="col-4 pgs">
-            <p style={{cursor:'pointer'}} className="pageBtn text-white"onClick={() => setPage(page - 1)}>Prev Page</p>
+            <p style={{cursor:'pointer'}} className="pageBtn"onClick={() => setPage(page - 1)}>Prev Page</p>
             </div>
             <div className="col-4 pgs">
-            <p className="text-white">{page}</p>
+            <p className="">{page}</p>
             </div>
             <div className="col-4 pgs">
-            <p style={{cursor:'pointer'}} className="pageBtn text-white" onClick={() => setPage(page + 1)}>Next Page</p>
+            <p style={{cursor:'pointer'}} className="pageBtn" onClick={() => setPage(page + 1)}>Next Page</p>
             </div>
           </div>
           </div>
 
             <div className="row legend">
+              <div className="left">
             <div className="col rank-header table-legend"><h4>Rank</h4></div>
-
-            <div className="col  table-legend"><h2>Name</h2></div>
-              <div className="col  table-legend"><h2>Elo</h2></div>
-              <div className="col  table-legend"><h2>Peak</h2></div>
-              <div className="col table-legend"><h2>Win %</h2></div>
-
+            <div className="col  table-legend"><h3>Name</h3></div>
+            </div>
+            <div className="right">
+            <div className="col  table-legend regionHeader"><h3>Region</h3></div>
+            <div className="col tier-header rank-header table-legend"><h3>Tier</h3></div>
+              <div className="col elo-header table-legend"><h3>Elo</h3></div>
+              <div className="col peak-header table-legend"><h3>Peak</h3></div>
+              <div className="col table-legend"><h3>Win %</h3></div>
+              </div>
 
             </div>
+            <div className="rankedDisplay">
           {data.map(item => (
-              <div className="row my-3 rank-row data" key={item.rank || item.teamname}>
-              <div className="col-2 rank-col data"><strong>{item.rank}</strong></div>
-              <div className="col-2 data">{item.teamname || item.name.substring(0,15)}</div>
-              <div className="col-2 data">{item.rating}</div>
-              <div className="col-2 data">{item.peak_rating}</div>
-          <div className="col-2 data">{((item.wins / item.games) * 100).toFixed(0) + '%'}</div>
+            <div className="rankedTable-container">
+              <User user={item}/>
             </div>
           ))}
-         
+         </div>
           <div className="row">
             <div className="col-4">
             <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
@@ -109,6 +145,7 @@ function Ranked() {
         
 
 
+        </div>
         </div>
         </div>
       )}
