@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/navbar.component'
 import UserTable from './children/userTable'
+import { TwitterPicker } from 'react-color';
 import ms from 'ms'
 import './track.css'
 import { propTypes } from 'react-bootstrap/esm/Image';
@@ -15,8 +16,13 @@ function Track(props){
  const [userLoaded, setLoaded] = useState(false)
  const [initWins, setInitWins] = useState()
  const [currentLosses, setCurrentLosses] = useState(0)
+ const [background, setBackground] = useState('#9a02ff')
  
 //hhere this works well, the only issue is having to wait for the first interval to show username and init stats
+const handleChangeComplete = (color) => {
+  setBackground(color.hex);
+};
+
  useEffect(()=>{
 if(props.location.state === undefined){
 let id = props.match.params.id
@@ -70,7 +76,12 @@ setInterval(()=>{
     <div>
     <Navbar/>
     <p>Stats will begin tracking in 1 minute!</p>
-    <UserTable user={user} name={username}/>
+    <p>Use the color picker below to customize your tracker!</p>
+    <TwitterPicker 
+    color={background}
+    onChangeComplete={handleChangeComplete}
+    />
+    <UserTable header={background} user={user} name={username}/>
   </div>
    )
  }

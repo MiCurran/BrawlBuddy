@@ -16,6 +16,8 @@ class Navigation extends Component {
     <Nav className="mr-auto">
        <Nav.Link className="navLink" href="/ranked">Leaderboard</Nav.Link>
        <Nav.Link className="navLink" href="/stats">User Stats</Nav.Link>
+       <Nav.Link className="navLink" href="/track">Track</Nav.Link>
+
        {/* <Nav.Link className="navLink" href="/track">Track</Nav.Link> */}
 
     </Nav>

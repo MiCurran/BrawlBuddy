@@ -12,7 +12,7 @@ UserTable(props){
 return(
     <div className="trackTable-container">
       <div className="trackTable">
-      <div className="trackTable-header">
+      <div className="trackTable-header" style={{backgroundColor: props.header}}>
       <p>username </p>
         <p>games </p>
         <p>w-l </p>

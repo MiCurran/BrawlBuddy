@@ -34,7 +34,6 @@ function App() {
         <Switch>
         <Route path="/ranked" exact component={ Rank }/>
         <Route path="/stats" exact component={ SearchComponent }/>
-         <Route path="/test" exact component={ SearchComponent }/> 
           <Route path='/stats/:id' exact component={ User }/>
           <Route path='/track' exact component={TrackSearch} />
           <Route path='/track/:id' exact component={Track} />
