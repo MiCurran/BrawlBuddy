@@ -20,13 +20,6 @@ function App() {
     ReactGA.pageview(window.location.pathname);
   })
 
-  //this may have been working and i just took it out to early. testing with the above set up and we will reassess 
-  // Initialize google analytics page view tracking
-  // history.listen(location => {
-  //   ReactGA.initialize('UA-174976359-2');
-  //   ReactGA.set({ page: location.pathname }); // Update the user's current page
-  //   ReactGA.pageview(location.pathname); // Record a pageview for the given page
-  // });
   return (
     <Router history={history}>
       

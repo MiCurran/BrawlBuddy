@@ -48,9 +48,7 @@ form {
  
 }
 
-.table-legend{
-    padding: 2% 0%;
-}
+
 
 .data {
     font-size: 1em;
@@ -67,24 +65,9 @@ form {
     color: #9a02ff !important;
     font-weight: 800;
 }
-.sidebar{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    width: 12vw;
-    position: fixed;
-    background-color: #343a40;
 
 
-}
 
-.eloTier {
-    max-width: 25px !important;
-    margin: 0% 25%;
-}
 .tierBanner{
     max-height: 25px;
 }
@@ -105,13 +88,7 @@ form {
     justify-content: center;
 
 }
-.sidebar .region{
-    margin-top:2em;
-}
 
-.sidebar label{
-    margin-top:2em; 
-}
 
 .rankedTable-container{
     background-color: #343a40;
@@ -120,9 +97,7 @@ form {
 .rankedTable-container:nth-of-type(even){
     background-color: #3d444b;
 }
-.regionHeader{
-margin-right: 5em;
-}
+
 .rankedTable{
     display: flex;
     flex-direction: row;
@@ -144,19 +119,50 @@ margin-right: 5em;
     top: 50%;
     border-color: #9a02ff;
 }
-.left, .right{
+.left, .right, .legend{
     display: flex;
     flex-direction: row;
 }
-.left{
-    min-width: 500px;
-}
-.region{
-    min-width: 65px;
-}
-.nameCol{
-    min-width: 200px;
-}
+
+@media only screen and (min-width: 100px) {
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        position: relative ;
+        background-color: #343a40;
+
+    }
+    .sidebar .region, .sidebar label{
+        margin-top:0;
+    }
+    .label {
+        display: inline;
+    }
+    .tier-header{
+        margin-right: 0;
+    }
+    .elo-header,.peak-header{
+        margin-right:0;
+    }
+    .legend h3, .legend h4{
+        font-size: .9em;
+    }
+    .table-legend{
+        padding: 5%;
+    }
+    .legend .left{
+        margin-right: 10%;
+    }
+    .col-2.rank-col.data {
+        padding-left: 0;
+    }
+    .nameCol{
+width: 120px;
+max-width: 120px;
+min-width: 120px;}
+  }
 @media only screen and (min-width: 900px) {
     .data-container {
         margin: 0% 15%;
@@ -165,7 +171,60 @@ margin-right: 5em;
     .rank-header {
         max-width: 5em !important;
     }
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+        width: 12vw;
+        position: fixed;
+        background-color: #343a40;
+    
+    
+    }
     .label {
         display: inline;
     }
+    .sidebar .region{
+        margin-top:2em;
+    }
+    
+    .sidebar label{
+        margin-top:2em; 
+    }
+ 
+    .left{
+        min-width: 500px;
+    }
+    .region{
+        min-width: 65px;
+    }
+    .nameCol{
+        min-width: 200px;
+    }
+    .eloTier {
+        max-width: 25px !important;
+        margin: 0% 25%;
+    }
+    .tier-header{
+        margin-right: 3em;
+    }
+    .elo-header,.peak-header{
+        margin-right: 3em;
+    }
+    .regionHeader{
+        margin-right: 5em;
+        }
+        .legend h3{
+            font-size: 1.5em;
+        }
+        .left{
+            margin-right: 0%;
+        }
+        .col-2.rank-col.data {
+            padding-left: 15px;
+        }
   }
+  

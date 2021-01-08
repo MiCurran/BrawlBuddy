@@ -110,17 +110,17 @@ function Ranked() {
           </div>
           </div>
 
-            <div className="row legend">
+            <div className=" legend">
               <div className="left">
-            <div className="col rank-header table-legend"><h4>Rank</h4></div>
-            <div className="col  table-legend"><h3>Name</h3></div>
+            <div className=" rank-header table-legend"><h4>Rank</h4></div>
+            <div className="  table-legend"><h3>Name</h3></div>
             </div>
             <div className="right">
-            <div className="col  table-legend regionHeader"><h3>Region</h3></div>
-            <div className="col tier-header rank-header table-legend"><h3>Tier</h3></div>
-              <div className="col elo-header table-legend"><h3>Elo</h3></div>
-              <div className="col peak-header table-legend"><h3>Peak</h3></div>
-              <div className="col table-legend"><h3>Win %</h3></div>
+            <div className="  table-legend regionHeader"><h3>Region</h3></div>
+            <div className=" tier-header rank-header table-legend"><h3>Tier</h3></div>
+              <div className=" elo-header table-legend"><h3>Elo</h3></div>
+              <div className=" peak-header table-legend"><h3>Peak</h3></div>
+              <div className=" table-legend"><h3>Win %</h3></div>
               </div>
 
             </div>

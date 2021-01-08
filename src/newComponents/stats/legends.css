@@ -23,12 +23,7 @@ align-items: center;
     font-size: 2em;
     font-weight: 700;
 }
-.tier-header{
-    margin-right: 3em;
-}
-.elo-header,.peak-header{
-    margin-right: 3em;
-}
+
 #legendimg{
     transition: all .2s ease-in-out;
 }
