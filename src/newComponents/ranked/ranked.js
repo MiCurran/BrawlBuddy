@@ -111,7 +111,7 @@ function Ranked() {
           </div>
 
             <div className=" legend">
-              <div className="left">
+              <div className="left legend-left">
             <div className=" rank-header table-legend"><h4>Rank</h4></div>
             <div className="  table-legend"><h3>Name</h3></div>
             </div>

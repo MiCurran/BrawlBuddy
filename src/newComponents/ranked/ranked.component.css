@@ -50,10 +50,7 @@ form {
 
 
 
-.data {
-    font-size: 1em;
-    font-weight: 600;
-}
+
 
 .header{
     text-align: center;
@@ -124,17 +121,8 @@ form {
     flex-direction: row;
 
 }
-.legend{
-    display: flex;
-    flex-direction: row;
 
-}
 
-.legend .left, .legend .right{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 @media only screen and (min-width: 100px) {
     .sidebar{
@@ -164,9 +152,7 @@ form {
     .table-legend{
         padding: 5%;
     }
-    .legend .left{
-        margin-right: 12%;
-    }
+   
     .col-2.rank-col.data {
         padding-left: 0;
     }
@@ -177,7 +163,15 @@ form {
 width: 120px;
 max-width: 120px;
 min-width: 120px;
-font-size: .8em};
+font-size: .8em}
+.legend{
+    display: flex;
+    flex-direction: row;
+
+}
+.left.legend-left{
+    margin-right: 15%;
+}
   }
 
  
@@ -243,6 +237,18 @@ font-size: .8em};
         }
         .col-2.rank-col.data {
             padding-left: 15px;
+        }
+        .data {
+            font-size: 1em;
+            font-weight: 600;
+        }
+        .legend{
+            display: flex;
+            flex-direction: row;
+        
+        }
+        .left.legend-left{
+            margin-right: 0%;
         }
   }
   
