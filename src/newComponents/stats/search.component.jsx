@@ -51,8 +51,8 @@ useEffect(()=>{
       return(
         <div>
             <Navbar/>
-            <div className="sidebar">
-        <div className="row">
+            <div className="sidebar" id="search-sidebar">
+        <div>
         <h4 className="text-white label">Enter a Player Name to search</h4>
         <p className="text-white">(must be exact match)</p>
         <div>
@@ -71,12 +71,12 @@ useEffect(()=>{
         <p className="text-white">(must be exact match)</p>
         <div>
         <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <input placeholder="User Name" name="firstName" ref={register} />
+      <input id="main-search" placeholder="User Name" name="firstName" ref={register} />
       <button  className="btn btn-primary"type="submit">Search</button>
     </form>
         </div>
         <div className="">
-            <img src={`${process.env.PUBLIC_URL}/DashImg1.png`} alt="ranked-banner"></img>
+            <img className="search-img" src={`${process.env.PUBLIC_URL}/DashImg1.png`} alt="ranked-banner"></img>
           </div>
         </div>
         </div>
@@ -87,7 +87,7 @@ useEffect(()=>{
     return(
         <div>
           <Navbar/>
-          <div className="sidebar">
+          <div className="sidebar" id="search-sidebar">
             <h4 className="text-white label">Enter a Player Name to search</h4>
       
       <form onSubmit={handleSubmit(onSubmit, onError)}>

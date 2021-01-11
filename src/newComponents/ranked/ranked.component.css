@@ -119,16 +119,28 @@ form {
     top: 50%;
     border-color: #9a02ff;
 }
-.left, .right, .legend{
+.left, .right {
     display: flex;
     flex-direction: row;
+
+}
+.legend{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.legend .left, .legend .right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @media only screen and (min-width: 100px) {
     .sidebar{
         display: flex;
         flex-direction: column;
-        width: auto;
+        max-width: 100vw !important;
         height: auto;
         position: relative ;
         background-color: #343a40;
@@ -153,16 +165,22 @@ form {
         padding: 5%;
     }
     .legend .left{
-        margin-right: 10%;
+        margin-right: 12%;
     }
     .col-2.rank-col.data {
         padding-left: 0;
     }
+    .data{
+        font-size: .6em;
+    }
     .nameCol{
 width: 120px;
 max-width: 120px;
-min-width: 120px;}
+min-width: 120px;
+font-size: .8em};
   }
+
+ 
 @media only screen and (min-width: 900px) {
     .data-container {
         margin: 0% 15%;

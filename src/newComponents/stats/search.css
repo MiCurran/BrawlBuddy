@@ -1,3 +1,15 @@
+@media only screen and (min-width: 100px) {
+    .main-search{
+        max-width: 50%;
+    }
+    .search-img{
+        max-width: 80%;
+    }
+}
+div#search-sidebar{
+    display: flex;
+    text-align: center;
+}
 .search-results{
     background-color: #49515a;
     text-align: center;
