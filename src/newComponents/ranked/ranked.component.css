@@ -172,6 +172,10 @@ font-size: .8em}
 .left.legend-left{
     margin-right: 15%;
 }
+.legend-right{
+    display: flex;
+    justify-content: space-between;
+}
   }
 
  
