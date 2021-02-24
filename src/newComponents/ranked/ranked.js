@@ -4,7 +4,6 @@ import useDataApi from 'use-data-api';
 import './ranked.component.css'
 import User from './user.component'
 import Navigation from '../Navbar/navbar.component'
-import Sidebar from '../Navbar/sidebar.component'
 import Spinner from 'react-bootstrap/Spinner'
 
 function Ranked() {
@@ -24,16 +23,18 @@ function Ranked() {
 
   );
 
-  const regions = [
-    'all',
-      'us-e',
-      'us-w',
-      'eu',
-      'brz',
-      'sea',
-      'jpn',
-      'aus'
-  ];
+
+  const regs = [
+    {key: 'all', value: 'Global'},
+    {key: 'us-e', value: 'US-E'},
+    {key: 'us-w', value: 'US-W'},
+    {key: 'eu', value: 'EU'},
+    {key: 'brz', value: 'BRZ'},
+    {key: 'sea', value: 'SEA'},
+    {key: 'jpn', value: 'JPN'},
+    {key: 'aus', value: 'AUS'}
+
+  ]
 
   useEffect(() =>{
 
@@ -57,9 +58,9 @@ function Ranked() {
           </div>
           <p className="text-white label">Region</p>
              <div className="regionButtons">
-               {regions.map((region, index) => (
-                   <button key={index} className="btn btn-primary" onClick={() => setRegion(region)}>{region}</button>
-               ))}
+             {regs.map((region, index) => (
+              <button key={index} className="btn btn-primary" onClick={() => setRegion(region.key)}>{region.value}</button>
+              ))}
              </div>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
       <label className="text-white" for="firstName">Search User</label>
@@ -81,8 +82,8 @@ function Ranked() {
           </div>
           <h4 className="text-white label region">Region</h4>
           <div className="regionButtons">
-            {regions.map((region, index) => (
-              <button key={index} className="btn btn-primary" onClick={() => setRegion(region)}>{region}</button>
+            {regs.map((region, index) => (
+              <button key={index} className="btn btn-primary" onClick={() => setRegion(region.key)}>{region.value}</button>
               ))}
           </div>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
@@ -96,7 +97,7 @@ function Ranked() {
 
           <div className="header rounded">
 
-          <h1 className="">{region} region {bracket} results for: "{query}"</h1>
+          <h1 className="">{region} region {bracket} results{query.length > 1 && `for: ${query}`} </h1>
           <div className="row pgs">
             <div className="col-4 pgs">
             <p style={{cursor:'pointer'}} className="pageBtn"onClick={() => setPage(page - 1)}>Prev Page</p>
