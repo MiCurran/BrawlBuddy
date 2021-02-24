@@ -24,6 +24,17 @@ function Ranked() {
 
   );
 
+  const regions = [
+    'all',
+      'us-e',
+      'us-w',
+      'eu',
+      'brz',
+      'sea',
+      'jpn',
+      'aus'
+  ];
+
   useEffect(() =>{
 
     doFetch(`https://api.brawlhalla.com/rankings/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`)
@@ -45,14 +56,11 @@ function Ranked() {
           </div>
           </div>
           <p className="text-white label">Region</p>
-          <button className="btn btn-primary" onClick={() => setRegion('all')}>Global</button>
-          <button className="btn btn-primary" onClick={() => setRegion('us-e')}>US-E</button>
-          <button className="btn btn-primary" onClick={() => setRegion('us-w')}>US-W</button>
-          <button className="btn btn-primary" onClick={() => setRegion('eu')}>EU</button>
-          <button className="btn btn-primary" onClick={() => setRegion('brz')}>BRZ</button>
-          <button className="btn btn-primary" onClick={() => setRegion('sea')}>SEA</button>
-          <button className="btn btn-primary" onClick={() => setRegion('jpn')}>JPN</button>
-          <button className="btn btn-primary" onClick={() => setRegion('aus')}>AUS</button>
+             <div className="regionButtons">
+               {regions.map((region, index) => (
+                   <button key={index} className="btn btn-primary" onClick={() => setRegion(region)}>{region}</button>
+               ))}
+             </div>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
       <label className="text-white" for="firstName">Search User</label>
       <input placeholder="User Name" name="firstName" ref={register} />
@@ -73,14 +81,9 @@ function Ranked() {
           </div>
           <h4 className="text-white label region">Region</h4>
           <div className="regionButtons">
-          <button className="btn btn-primary" onClick={() => setRegion('all')}>Global</button>
-          <button className="btn btn-primary" onClick={() => setRegion('us-e')}>US-E</button>
-          <button className="btn btn-primary" onClick={() => setRegion('us-w')}>US-W</button>
-          <button className="btn btn-primary" onClick={() => setRegion('eu')}>EU</button>
-          <button className="btn btn-primary" onClick={() => setRegion('brz')}>BRZ</button>
-          <button className="btn btn-primary" onClick={() => setRegion('sea')}>SEA</button>
-          <button className="btn btn-primary" onClick={() => setRegion('jpn')}>JPN</button>
-          <button className="btn btn-primary" onClick={() => setRegion('aus')}>AUS</button>
+            {regions.map((region, index) => (
+              <button key={index} className="btn btn-primary" onClick={() => setRegion(region)}>{region}</button>
+              ))}
           </div>
           <form onSubmit={handleSubmit(onSubmit, onError)}>
       <label className="text-white" for="firstName"><h4>Search User</h4></label>
