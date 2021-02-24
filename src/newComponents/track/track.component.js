@@ -7,8 +7,6 @@ import Card from 'react-bootstrap/Card'
 import Toast from 'react-bootstrap/Toast'
 import ms from 'ms'
 import './track.css'
-import { propTypes } from 'react-bootstrap/esm/Image';
-
 
 function Track(props){
  const apiKey = process.env.REACT_APP_API_KEY;
@@ -21,7 +19,7 @@ function Track(props){
  const [currentLosses, setCurrentLosses] = useState(0)
  const [background, setBackground] = useState('#9a02ff')
  const [show, setShow] = useState(true);
- 
+
 //hhere this works well, the only issue is having to wait for the first interval to show username and init stats
 const handleChangeComplete = (color) => {
   setBackground(color.hex);
@@ -32,7 +30,7 @@ if(props.location.state === undefined){
 let id = props.match.params.id
 bh.getPlayerRanked(id).then(function(playerRanked){
   console.log(playerRanked.wins)
-  
+
   })
   setInterval(()=>{
   },ms('10m'))
@@ -47,7 +45,7 @@ setInterval(()=>{
   bh.getPlayerRanked(initUser.brawlid).then(function(playerRanked){
     console.log(playerRanked)
     setUser(
-      
+
       {
         username: playerRanked.name,
         wins: (playerRanked.wins - initUser.initWins),
@@ -59,7 +57,7 @@ setInterval(()=>{
         }
 
       }
-      
+
     )
     setLoaded(true)
     })},ms('1m'))
@@ -110,7 +108,7 @@ setInterval(()=>{
     <Accordion.Collapse eventKey="0">
       <Card.Body>
         <div className="card-body">
-      <TwitterPicker 
+      <TwitterPicker
     color={background}
     onChangeComplete={handleChangeComplete}
     />
@@ -120,7 +118,7 @@ setInterval(()=>{
     </Accordion.Collapse>
   </Card>
 </Accordion>
-    
+
     <UserTable header={background} user={user} name={username}/>
   </div>
    )

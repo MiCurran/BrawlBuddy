@@ -5,10 +5,8 @@ import './navbar.css'
 
 
 
-class Navigation extends Component {
-    state = {  }
-    render() { 
-        return (  
+export default function Navigation () {
+        return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark" id="navbar">
   <Navbar.Brand className="navLink" style={{cursor:'pointer'}} to="/">Brawl Buddy</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -25,7 +23,5 @@ class Navigation extends Component {
   </Navbar.Collapse>
 </Navbar>
         );
-    }
 }
- 
-export default Navigation;
+
