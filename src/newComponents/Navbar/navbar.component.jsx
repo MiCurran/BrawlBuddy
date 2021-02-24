@@ -3,8 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import './navbar.css'
 
-
-
 export default function Navigation () {
         return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark" id="navbar">
@@ -19,9 +17,9 @@ export default function Navigation () {
        {/* <Nav.Link className="navLink" href="/track">Track</Nav.Link> */}
 
     </Nav>
-
   </Navbar.Collapse>
 </Navbar>
         );
 }
+
 

@@ -34,9 +34,6 @@ bh.getPlayerRanked(id).then(function(playerRanked){
   })
   setInterval(()=>{
   },ms('10m'))
-
-
-
   }
     else{
 let initUser = props.location.state.user
@@ -45,7 +42,6 @@ setInterval(()=>{
   bh.getPlayerRanked(initUser.brawlid).then(function(playerRanked){
     console.log(playerRanked)
     setUser(
-
       {
         username: playerRanked.name,
         wins: (playerRanked.wins - initUser.initWins),
@@ -55,15 +51,12 @@ setInterval(()=>{
         get losses(){
           return(this.games - this.wins);
         }
-
       }
-
     )
     setLoaded(true)
     })},ms('1m'))
     }
  },[props])
-
 
  if(props.location.state === undefined){
   return(
@@ -72,18 +65,17 @@ setInterval(()=>{
     <p>Work in progress</p>
     <p>Please go to the track page and enter your id there to track stats</p>
   </div>)
- }
- else{
-   return(
-    <div>
-    <Navbar/>
-    <Toast onClose={() => setShow(false)} show={show} delay={ms('2m')} autohide
-    style={{
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-    }}>
-          <Toast.Header style={{backgroundColor:'#9a02ff'}}>
+ } else{
+    return(
+        <div>
+            <Navbar/>
+                <Toast onClose={() => setShow(false)} show={show} delay={ms('2m')} autohide
+                    style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        right: 0,
+                    }}>
+                    <Toast.Header style={{backgroundColor:'#9a02ff'}}>
             <img
               src="holder.js/20x20?text=%20"
               className="rounded mr-2"
