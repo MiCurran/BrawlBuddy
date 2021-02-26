@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route,  Switch,Link} from 'react-router-dom';
 
+import { Row, Col } from 'react-bootstrap'
+
+
 
 function User(props){
     const userName = props.user.name
@@ -14,19 +17,15 @@ function User(props){
     const region = props.user.region
 
     return(
-        <div className="rankedTable" key={rank || teamname}>
-        <div className="left">
-        <div className="col-2 rank-col data"><strong>{rank}</strong></div>
-        <div className="col-2 data nameCol"><Link to={{pathname:`/stats/${brawlhalla_id}`}}>{teamname || userName.substring(0,15)}</Link></div>
-        </div>
-        <div className="right">
-        <div className="col-2 data eloTier region">{region}</div>
-        <div className="col-2 data eloTier"><img src={`${process.env.PUBLIC_URL}/RankedBanner${props.user.tier}.png`} alt={props.user.tier}></img></div>
-        <div className="col-2 data eloTier">{rating}</div>
-        <div className="col-2 data eloTier">{peak_rating}</div>
-    <div className="col-2 data eloTier">{((wins / games) * 100).toFixed(0) + '%'}</div>
-    </div>
-      </div>
+        <Row key={rank || teamname}>
+        <Col xs={1} ><strong>{rank}</strong></Col>
+        <Col ><Link to={{pathname:`/stats/${brawlhalla_id}`}}>{teamname || userName.substring(0,15)}</Link></Col>
+        <Col>{region}</Col>
+        <Col className="col-2 data eloTier"><img src={`${process.env.PUBLIC_URL}/RankedBanner${props.user.tier}.png`} alt={props.user.tier}></img></Col>
+        <Col >{rating}</Col>
+        <Col >{peak_rating}</Col>
+    <Col>{((wins / games) * 100).toFixed(0) + '%'}</Col>
+      </Row>
       
     )
 }
