@@ -97,7 +97,7 @@ form {
     background-color: #343a40;
 }
 .rankedDisplay .rankedTable-container:hover { 
-    transform: scale(1.1); 
+    transform: scale(1.01); 
     filter:blur(0) !important;
     }
 .spinner {

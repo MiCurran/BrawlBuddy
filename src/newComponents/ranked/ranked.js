@@ -5,6 +5,8 @@ import './ranked.component.css'
 import User from './user.component'
 import Navigation from '../Navbar/navbar.component'
 import Spinner from 'react-bootstrap/Spinner'
+import { Col, Row } from 'react-bootstrap';
+import {baseAPI} from '../../api/baseApi'
 
 function Ranked() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -15,14 +17,11 @@ function Ranked() {
   const [page, setPage] = useState(1);
   const [region, setRegion] = useState('all')
   const [bracket, setBracket] = useState('1v1')
-  const [day1trend, setday1Trend] = useState(0)
-  const [currentTrend, setcurrentTrend] = useState()
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    `https://api.brawlhalla.com/rankings/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`,
+    `${baseAPI}/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`,
      [] ,
 
   );
-
 
   const regs = [
     {key: 'all', value: 'Global'},
@@ -110,20 +109,29 @@ function Ranked() {
             </div>
           </div>
           </div>
-
-            <div className=" legend">
-              <div className="left legend-left">
-            <div className=" rank-header table-legend"><h4>Rank</h4></div>
-            <div className="  table-legend"><h3>Name</h3></div>
-            </div>
-            <div className="right legend-right">
-            <div className="  table-legend regionHeader"><h3>Region</h3></div>
-            <div className=" tier-header rank-header table-legend"><h3>Tier</h3></div>
-              <div className=" elo-header table-legend"><h3>Elo</h3></div>
-              <div className=" peak-header table-legend"><h3>Peak</h3></div>
-              <div className=" table-legend"><h3>Win %</h3></div>
-              </div>
-            </div>
+            <Row className=" legend">
+              <Col>
+              <div className=" rank-header table-legend"><h4>Rank</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Name</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Region</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Tier</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Elo</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Peak</h4></div>
+              </Col>
+              <Col>
+              <div className=" rank-header table-legend"><h4>Win %</h4></div>
+              </Col>
+            </Row>
             <div className="rankedDisplay">
           {data.map(item => (
             <div className="rankedTable-container">

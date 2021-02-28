@@ -1,0 +1,1 @@
+export const baseAPI = "https://api.brawlhalla.com/rankings/"
