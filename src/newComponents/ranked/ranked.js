@@ -35,9 +35,11 @@ function Ranked() {
 
   ]
 
+  const pages = [0,1,2,3,4];
+
   useEffect(() =>{
 
-    doFetch(`https://api.brawlhalla.com/rankings/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`)
+    doFetch(`${baseAPI}/${bracket}/${region}/${page}?name=${query}&api_key=${apiKey}`)
   })
 
   return (
@@ -102,17 +104,26 @@ function Ranked() {
              {bracket} rankings 
             {query.length > 1 && ` results for "${query}" `} 
             </h1>
-          <div className="row pgs mr-0">
-            <div className="col-4 pgs">
-            <p style={{cursor:'pointer'}} className="pageBtn"onClick={() => setPage(page - 1)}>Prev Page</p>
-            </div>
-            <div className="col-4 pgs">
-            <p className="">{page}</p>
-            </div>
-            <div className="col-4 pgs">
-            <p style={{cursor:'pointer'}} className="pageBtn" onClick={() => setPage(page + 1)}>Next Page</p>
-            </div>
-          </div>
+            <Row className="mt-5">
+            <Col>
+            <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
+            </Col>
+            <Col style={{maxWidth:'fit-content', cursor:'pointer'}}>
+              <Row>
+            {pages.map((x,index) => {
+              return(
+                <div className="pgs mx-2" onClick={() => setPage(page + index)}>
+                <p className="">{page + index}</p>
+                </div>
+              )
+            }
+            )}
+            </Row>
+            </Col>
+            <Col>
+            <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page + 1)}>Next Page</button>
+            </Col>
+          </Row>
           </div>
             <Row className=" legend mr-0">
               <Col xs={1} className="rankColumn" style={{maxWidth: 'fit-content'}}>
@@ -144,17 +155,26 @@ function Ranked() {
             </div>
           ))}
          </div>
-          <div className="row">
-            <div className="col-4">
+          <Row className="mt-5">
+            <Col>
             <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page - 1)}>Prev Page</button>
-            </div>
-            <div className="col-4">
-            <p className="text-white">{page}</p>
-            </div>
-            <div className="col-4">
+            </Col>
+            <Col style={{maxWidth:'fit-content', cursor:'pointer'}}>
+              <Row>
+            {pages.map((x,index) => {
+              return(
+                <div className="pgs mx-2" onClick={() => setPage(page + index)}>
+                <p className="">{page + index}</p>
+                </div>
+              )
+            }
+            )}
+            </Row>
+            </Col>
+            <Col>
             <button className="pageBtn btn btn-primary btn-sm"onClick={() => setPage(page + 1)}>Next Page</button>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
         </div>
         </div>

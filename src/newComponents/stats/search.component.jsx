@@ -16,7 +16,7 @@ function SearchComponent(props){
     const [userList, setUserList] = useState()
 const { register, handleSubmit } = useForm();
 const onSubmit = (data, e) => bh.getBhidByName(data.firstName || data.name).then(function(users){
-for(i=0; i< users.length; i++){
+for(i=0; i < users.length; i++){
     setUserList([
         ...users,
         {
@@ -30,9 +30,10 @@ for(i=0; i< users.length; i++){
 });
 const onError = (errors, e) => console.log(errors, e);
 useEffect(()=>{
+  let i;
   if(props.location.state != undefined){
     console.log(props.location.state.users)
-    for(i=0; i< props.location.state.users.length; i++){
+    for(i=0; i< props.location.state.users.length ; i++){
       setUserList([
           ...props.location.state.users,
           {
@@ -51,7 +52,7 @@ useEffect(()=>{
       return(
         <div>
             <Navbar/>
-            <div className="sidebar" id="search-sidebar">
+            <div className="sidebar" id="search-sidebar-no-results">
         <div>
         <h4 className="text-white label">Enter a Player Name to search</h4>
         <p className="text-white">(must be exact match)</p>
