@@ -15,7 +15,7 @@ function Legend(props){
   })
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] =useState(0)
- 
+
     useEffect(()=>{
       axios.all([
         axios.get(`https://api.brawlhalla.com/legend/${legend_id}/?api_key=${apiKey}`),
@@ -23,7 +23,7 @@ function Legend(props){
               .then(response => { //sets each get request to an object in an array
                 setData({legendData: response[0].data}) // sets the responses from calls to data objects
                                 });
-                
+
      const setTime = () => {
         setHours(Math.floor(props.legend.matchtime/3600))
         setMinutes(props.legend.matchtime % 60)
@@ -32,17 +32,17 @@ function Legend(props){
     },[props.legend.legend_name_key])
     return(<div className="legendRow">
         <div className=" col-12 my-3 text-dark legendCard" key={legend_id}>
-        <div className="cardImg"><img src={`${process.env.PUBLIC_URL}/${legendName}.png`} alt={`${legendName}.png`}></img></div>
+        <div className="cardImg"><img src={`${process.env.PUBLIC_URL}/${legendName}.png`} alt={`${legendName}.png`}/></div>
       <div className="col text-dark" id="legendName"><strong>{legendName}</strong></div>
       <label htmlFor="level">{(xp_percentage * 100).toFixed(0)+'%'}</label>
-      <progress id="level" value={(xp_percentage * 100).toFixed(0)} max="100"></progress>
+      <progress id="level" value={(xp_percentage * 100).toFixed(0)} max="100" />
       <div className="col text-sm">lvl {level}</div>
     </div>
     <div className="legendStats d-flex">
     <div className="cardHeader">
         <h4>Overview</h4>
         </div>
-      <div className="overview px-5">     
+      <div className="overview px-5">
     <p className="legendData">Time spent in match <strong className="label">{hours} hours</strong>  and <strong className="label">{minutes} minutes</strong></p>
     <div className="legendGames d-flex justify-content-between flex-row align-items-center">
     <div>
@@ -62,12 +62,12 @@ function Legend(props){
       <div className="weapons d-flex flex-row justify-content-center">
       <div className="weapon1 d-flex flex-column px-2">
     <p className="weaponLabel">{data.legendData.weapon_one} damage:</p>
-    <div><img src={`${process.env.PUBLIC_URL}/${data.legendData.weapon_one}icon.png`} alt="weapon1"></img></div>
+    <div><img src={`${process.env.PUBLIC_URL}/${data.legendData.weapon_one}icon.png`} alt="weapon1" /></div>
     <p className="damageCount">{myFormat(props.legend.damageweaponone)}</p>
     </div>
     <div className="weapon2 d-flex flex-column px-3">
       <p className="weaponLabel">{data.legendData.weapon_two} damage:</p>
-      <div><img src={`${process.env.PUBLIC_URL}/${data.legendData.weapon_two}icon.png`} alt="weapon2"></img></div>
+      <div><img src={`${process.env.PUBLIC_URL}/${data.legendData.weapon_two}icon.png`} alt="weapon2" /></div>
       <p className="damageCount">{myFormat(props.legend.damageweapontwo)}</p>
     </div>
     </div>

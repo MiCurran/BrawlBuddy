@@ -13,7 +13,7 @@ function UserCard(props){
     const tier = props.rankedData.tier
     return(
         <div className="row py-5 rank-row d-flex justify-content-center text-center " key={userName}>
-          <h1 className="season">Season 18 Stats</h1>
+          <h1 className="season">Season 19 Stats</h1>
         <div className="userContainer">
 
             <div className='info-column'>
