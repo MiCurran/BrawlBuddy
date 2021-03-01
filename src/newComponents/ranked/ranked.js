@@ -96,8 +96,13 @@ function Ranked() {
 
           <div className="header rounded">
 
-          <h1 className="">{region} region {bracket} results{query.length > 1 && `for: ${query}`} </h1>
-          <div className="row pgs">
+          <h1 className="">
+            {region === 'all' && `Global `}
+            {region !== 'all' && `${region} `} 
+             {bracket} rankings 
+            {query.length > 1 && ` results for "${query}" `} 
+            </h1>
+          <div className="row pgs mr-0">
             <div className="col-4 pgs">
             <p style={{cursor:'pointer'}} className="pageBtn"onClick={() => setPage(page - 1)}>Prev Page</p>
             </div>
@@ -109,27 +114,27 @@ function Ranked() {
             </div>
           </div>
           </div>
-            <Row className=" legend">
-              <Col>
-              <div className=" rank-header table-legend"><h4>Rank</h4></div>
+            <Row className=" legend mr-0">
+              <Col xs={1} className="rankColumn" style={{maxWidth: 'fit-content'}}>
+              <h4>Rank</h4>
+              </Col>
+              <Col className="">
+              <h4>Name</h4>
               </Col>
               <Col>
-              <div className=" rank-header table-legend"><h4>Name</h4></div>
+              <h4>Region</h4>
               </Col>
               <Col>
-              <div className=" rank-header table-legend"><h4>Region</h4></div>
+              <h4>Tier</h4>
               </Col>
               <Col>
-              <div className=" rank-header table-legend"><h4>Tier</h4></div>
+              <h4>Elo</h4>
               </Col>
               <Col>
-              <div className=" rank-header table-legend"><h4>Elo</h4></div>
+              <h4>Peak</h4>
               </Col>
               <Col>
-              <div className=" rank-header table-legend"><h4>Peak</h4></div>
-              </Col>
-              <Col>
-              <div className=" rank-header table-legend"><h4>Win %</h4></div>
+              <h4>Win %</h4>
               </Col>
             </Row>
             <div className="rankedDisplay">

@@ -1,5 +1,8 @@
 #ranked{
-    background-image: url('./assets/Synthwave_2048x1536.jpg');
+    background-color: #393f46;
+    overflow-x: hidden;
+    text-align: center;
+    color: #ffffff;
 }
 
 .btn-primary{
@@ -11,49 +14,19 @@
     background-image: none !important;
 }
 
-
 form {
     margin: 4%
 }
-.col-2 {
-
-    color: #ffffff;
-
-}
 
 .legend {
-    background-color:  #343a40;
-    color: azure;
-}
-
-.col h4 {
-    color: black;
-    font-size: 1.2em;
-}
-
-
-.rank-row {
-    border-top: 1px solid #9b9a9a;
-    padding-top: 1rem;
- 
-}
-
-
-
-
-
-.header{
-    text-align: center;
-    background-color: #9b9a9a;
-    
+    background-color:  #9a02ff;
+    color: rgb(255, 255, 255);
 }
 
 .pageBtn:hover {
     color: #9a02ff !important;
     font-weight: 800;
 }
-
-
 
 .tierBanner{
     max-height: 25px;
@@ -76,13 +49,17 @@ form {
 
 }
 
-
 .rankedTable-container{
     background-color: #343a40;
+    color: aliceblue;
     
 }
 .rankedTable-container:nth-of-type(even){
     background-color: #3d444b;
+}
+
+.userRow a{
+    color: #ffffff!important;
 }
 
 .rankedTable{
@@ -90,24 +67,16 @@ form {
     flex-direction: row;
     transition: all .2s ease-in-out;
 }
-.rankedDisplay:hover .rankedTable-container{
-    filter: blur(2px);
-}
-.rankedDisplay{
-    background-color: #343a40;
-}
 .rankedDisplay .rankedTable-container:hover { 
     transform: scale(1.01); 
-    filter:blur(0) !important;
     }
+
 .spinner {
     position: absolute;
     right:50%;
     top: 50%;
     border-color: #9a02ff;
 }
-
-
 
 @media only screen and (min-width: 100px) {
     .sidebar{
@@ -117,6 +86,7 @@ form {
         height: auto;
         position: relative ;
         background-color: #343a40;
+        text-align: center;
 
     }
     .sidebar .region, .sidebar label{
@@ -125,45 +95,39 @@ form {
     .label {
         display: inline;
     }
-    .tier-header{
-        margin-right: 0;
-    }
-    .elo-header,.peak-header{
-        margin-right:0;
-    }
-    .legend h3, .legend h4{
-        font-size: .9em;
-    }
-    .table-legend{
-        padding: 5%;
-    }
-   
-    .col-2.rank-col.data {
-        padding-left: 0;
-    }
+
     .data{
         font-size: .6em;
     }
-    .nameCol{
-width: 120px;
-max-width: 120px;
-min-width: 120px;
-font-size: .8em}
-.legend{
+
+.userRow a{
+    color: #ffffff!important;
+}
+
+.legend h4{
+    font-size: .9em;
+}
+
+.rankColumn {
+    max-width: 0px;
+    visibility: hidden;
+    margin-right: -6%;
+}
+.rankedTable{
     display: flex;
     flex-direction: row;
+    transition: all .2s ease-in-out;
+}
+.rankedDisplay .rankedTable-container:hover { 
+    transform: scale(1.01); 
+    }
+.legend{
+    margin-right: -5%;
+    padding-right: 0%;
+}
 
-}
-.left.legend-left{
-    margin-right: 15%;
-}
-.legend-right{
-    display: flex;
-    justify-content: space-between;
-}
   }
 
- 
 @media only screen and (min-width: 900px) {
     .data-container {
         margin: 0% 15%;
@@ -195,49 +159,29 @@ font-size: .8em}
     .sidebar label{
         margin-top:2em; 
     }
- 
-    .left{
-        min-width: 500px;
+    .userRow a{
+        color: #ffffff!important;
+        font: 1.2em;
+        letter-spacing: .2em;
+        font-weight: 700;
     }
-    .region{
-        min-width: 65px;
+    .legend h4{
+        font-size: 1.2em;
     }
-    .nameCol{
-        min-width: 200px;
+
+    .rankColumn {
+        margin-left: -1%;
+        margin-right: 3%;
     }
-    .eloTier {
-        max-width: 25px !important;
-        margin: 0% 25%;
+
+    .rankedTable{
+        display: flex;
+        flex-direction: row;
+        transition: all .2s ease-in-out;
     }
-    .tier-header{
-        margin-right: 3em;
-    }
-    .elo-header,.peak-header{
-        margin-right: 3em;
-    }
-    .regionHeader{
-        margin-right: 5em;
+    .rankedDisplay .rankedTable-container:hover { 
+        transform: scale(1.01); 
         }
-        .legend h3{
-            font-size: 1.5em;
-        }
-        .left{
-            margin-right: 0%;
-        }
-        .col-2.rank-col.data {
-            padding-left: 15px;
-        }
-        .data {
-            font-size: 1em;
-            font-weight: 600;
-        }
-        .legend{
-            display: flex;
-            flex-direction: row;
-        
-        }
-        .left.legend-left{
-            margin-right: 0%;
-        }
+
   }
   

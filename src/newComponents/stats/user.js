@@ -8,6 +8,7 @@ import "./stat.css";
 import SearchComponent from "./search.component";
 import { useForm } from "react-hook-form";
 import { Redirect } from "react-router-dom";
+import { playerAPI } from '../../api/baseApi'
 
 function User(props) {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -44,10 +45,10 @@ function User(props) {
     axios
       .all([
         axios.get(
-          `https://api.brawlhalla.com/player/${brawlid}/stats?api_key=${apiKey}`
+          `${playerAPI}${brawlid}/stats?api_key=${apiKey}`
         ),
         axios.get(
-          `https://api.brawlhalla.com/player/${brawlid}/ranked?api_key=${apiKey}`
+          `${playerAPI}${brawlid}/ranked?api_key=${apiKey}`
         ),
       ])
       .then((response) => {
