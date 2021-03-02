@@ -95,9 +95,7 @@ function Ranked() {
         </div>
         <div id="ranked">
         <div className="data-container">
-
           <div className="header rounded">
-
           <h1 className="">
             {region === 'all' && `Global `}
             {region !== 'all' && `${region} `} 
