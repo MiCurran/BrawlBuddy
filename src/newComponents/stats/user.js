@@ -3,9 +3,7 @@ import axios from "axios";
 import UserCard from "./userCard.component";
 import Legends from "./legends";
 import Navbar from "../Navbar/navbar.component";
-import Sidebar from "./userSidebar";
 import "./stat.css";
-import SearchComponent from "./search.component";
 import { useForm } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import { playerAPI } from '../../api/baseApi'
@@ -14,7 +12,6 @@ function User(props) {
   const apiKey = process.env.REACT_APP_API_KEY;
   let brawlid = props.match.params.id;
   const bh = require("brawlhalla-api")(apiKey);
-  const [userSearch, setUserSearch] = useState(null);
   //data is set to nested objects that will hold our api data hits
   const [data, setData] = useState({
     userData: {},
@@ -57,14 +54,11 @@ function User(props) {
       });
   }, [brawlid]); //only run useEffect if brawlid params have changed
   //check if data has been loaded
-
-  if (!userList) {
-    if (!data) {
-      return <h1>Loading</h1>;
-    } else {
-      //return user ranked card info and then legends
-      return (
-        <div>
+  
+  !userList ?
+    !data ?  
+          <h1>Loading</h1>
+          : <div>
           <Navbar />
           <div className="sidebar">
             <h4 className="text-white label">Enter a Player Name to search</h4>
@@ -74,7 +68,7 @@ function User(props) {
                 placeholder="User Name" 
                 name="firstName" 
                 ref={register} />
-              <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit">
                 Submit
               </button>
             </form>
@@ -83,11 +77,8 @@ function User(props) {
           <UserCard userData={data.userData} rankedData={data.rankedData} />
           <Legends legends={data.userData.legends} />
         </div>
-      );
-    }
-  } else {
-    return <Redirect to={{ pathname: "/stats", state: { users: userList } }} />;
+          :
+     <Redirect to={{ pathname: "/stats", state: { users: userList } }} />;
   }
-}
 
 export default User;

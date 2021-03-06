@@ -17,7 +17,7 @@ style={{
   right: 0,
 }}
 >
-<Toast.Header style={{ backgroundColor: "#9a02ff" }}>
+<Toast.Header style={{ backgroundColor: props.color }}>
   <img
     src="holder.js/20x20?text=%20"
     className="rounded mr-2"
@@ -29,6 +29,7 @@ style={{
   <small>Now</small>
 </Toast.Header>
 <Toast.Body>
+  <p>You are tracking {props.username}</p>
   <p>Stats will begin tracking in 1 minute!</p>
   <p>
     Use the color picker in the customize tab to customize your

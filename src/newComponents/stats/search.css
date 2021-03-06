@@ -5,11 +5,18 @@
     .search-img{
         max-width: 80%;
     }
+    #search-sidebar-no-results {
+        display: none;
+    }   
 }
-div#search-sidebar{
-    display: flex;
-    text-align: center;
+
+@media only screen and (min-width: 900px) {
+    #search-sidebar-no-results {
+        display: flex;
+        text-align: center;
+    }
 }
+
 .search-results{
     background-color: #49515a;
     text-align: center;

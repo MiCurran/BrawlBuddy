@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './trackButton.component.css'
-function TrackButton(){
-    return(<button type="submit" class="blobby-button">Submit <span class="inner">
+function TrackButton(props){
+    return(<button type="submit" class="blobby-button">{props.label} <span class="inner">
     <span class="blobs">
       <span class="blob"></span>
    <span class="blob"></span>

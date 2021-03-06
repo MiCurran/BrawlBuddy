@@ -25,7 +25,6 @@ function Track(props) {
     if (props.location.state === undefined) {
       let id = props.match.params.id;
       bh.getPlayerRanked(id).then(function (playerRanked) {
-        console.log(playerRanked.wins);
       });
       setInterval(() => {}, ms("10m"));
     } else {
@@ -51,6 +50,7 @@ function Track(props) {
   }, [props]);
 
   if (props.location.state === undefined) {
+    
     return (
       <div>
         <Navbar />
@@ -64,7 +64,7 @@ function Track(props) {
     return (
       <div>
         <Navbar />
-          <ToastComponent /> 
+          <ToastComponent color={background} username={username}/> 
           <Accordion
           style={{ cursor: "pointer", width: "500px" }}
           defaultActiveKey="0"
