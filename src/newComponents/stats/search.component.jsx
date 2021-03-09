@@ -33,7 +33,7 @@ useEffect(()=>{
   let i;
   if(props.location.state != undefined){
     console.log(props.location.state.users)
-    for(i=0; i< props.location.state.users.length ; i++){
+    for(i=0; i< props.location.state.users.length - 1; i++){
       setUserList([
           ...props.location.state.users,
           {
