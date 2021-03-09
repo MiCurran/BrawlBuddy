@@ -6,7 +6,7 @@ import Navbar from "../Navbar/navbar.component";
 import "./stat.css";
 import { useForm } from "react-hook-form";
 import { Redirect } from "react-router-dom";
-import { playerAPI } from '../../api/baseApi'
+import { playerAPI } from '../../constants/api/baseApi'
 
 function User(props) {
   const apiKey = process.env.REACT_APP_API_KEY;
