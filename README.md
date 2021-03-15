@@ -6,11 +6,18 @@
 - All data is pulled directly from the Brawlhalla API @ [dev.brawlhalla.com](https://dev.brawlhalla.com)
 
 ## Features
-1. Ranked Table
+1. ### Ranked Table
  - ![Ranked Table](./public/brawltrackerhome.png)
-2. User Search Tool
+2. ### User Search Tool
   - ![User Search page in progress](./public/brawltrackeruser.png)
-3. Stream Buddy
+3. ### Stream Buddy
   - ![Image of Stream Buddy in Progress](./public/brawltrackertrack.png)
 ## Try it out
 @ [brawl-buddy.herokuapp.com](https://brawl-buddy.herokuapp.com)
+
+## Set up the dev environment  
+  - Clone the repo
+  - Add your API Key to a local .env file inside the root directory
+  - cd BrawlBuddy && npm start  
+  - Navigate to http://localhost:3000/
+  - 🚀🚀
